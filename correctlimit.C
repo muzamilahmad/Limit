@@ -2,6 +2,43 @@ void numTcross(){
 ifstream cin("limit.txt");
 
 
+
+
+
+TPaveText *tpav_txt00 = new TPaveText(0.190,1.0230025,0.097052174,0.8010471,"brNDC");
+tpav_txt00->SetBorderSize(0);
+tpav_txt00->SetFillStyle(0);
+tpav_txt00->SetTextAlign(10);
+tpav_txt00->SetTextFont(42);
+tpav_txt00->SetTextSize(0.045);
+tpav_txt00->SetTextColor(kBlack);
+tpav_txt00->AddText("#font[22]{CMS}");
+TPaveText *tpav_txt010 = new TPaveText(0.375,1.0025,0.165052174,0.8010471,"brNDC");
+tpav_txt010->SetBorderSize(0);
+tpav_txt010->SetFillStyle(0);
+tpav_txt010->SetTextAlign(10);
+tpav_txt010->SetTextFont(42);
+tpav_txt010->SetTextSize(0.045);
+tpav_txt010->SetTextColor(kBlack);
+tpav_txt010->AddText("#font[52]{Preliminary}");
+TPaveText *tpav_txtt = new TPaveText(0.73043478,0.9148342,0.6652174,0.89010471,"brNDC");
+
+tpav_txtt->SetBorderSize(0);
+tpav_txtt->SetFillStyle(0);
+tpav_txtt->SetTextAlign(11);
+tpav_txtt->SetTextFont(42);
+tpav_txtt->SetTextSize(0.04);
+tpav_txtt->SetTextColor(kBlack);
+//tpav_txt->AddText("#gamma+ Jets");
+tpav_txtt->AddText("2.6fb^{-1},  #sqrt{s}=13 TeV");
+
+
+
+
+
+
+
+
  TCanvas *c1 = new TCanvas("c1","A Simple Graph Example",200,10,700,500);
 
    c1->SetGrid();
@@ -104,6 +141,7 @@ grshade->SetFillStyle(1001);
 //********************************************************LEGEND
 
 TLegend *leg=new TLegend(0.15,0.69,0.3,0.85);
+      leg->SetHeader("Scalar LQ#bar{LQ} #rightarrow eejj");
       leg ->AddEntry(gr,"Expected 95% CL upper limit", "lp");
       leg ->AddEntry(grd,"Observed 95% CL upper limit", "lp");
       leg ->AddEntry(grT,"#sigma_{theory} #times #beta^{2} ","lp");
@@ -113,10 +151,14 @@ TLegend *leg=new TLegend(0.15,0.69,0.3,0.85);
 
 
    grT->SetFillStyle(3001);
+   grT->SetFillColor(kBlue);
    grT->SetLineWidth(2);
    grT->SetLineColor(kBlue);
    grT->Draw("3c");
 leg->Draw();
+tpav_txtt->Draw();
+tpav_txt00->Draw();
+tpav_txt010->Draw();
 //********************************************************
 
 
